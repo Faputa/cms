@@ -150,4 +150,9 @@ public class DsCmsSpecialController extends DsCmsBaseController
 		}
 		return list;
 	}
+
+	private String getCmsRoot()
+	{
+		return request.getSession().getServletContext().getRealPath("/html") + "/";
+	}
 }

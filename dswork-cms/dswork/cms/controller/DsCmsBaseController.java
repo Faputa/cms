@@ -361,9 +361,4 @@ public class DsCmsBaseController extends BaseController
 	{
 		return own;
 	}
-
-	protected String getCmsRoot()
-	{
-		return request.getSession().getServletContext().getRealPath("/html") + "/";
-	}
 }

@@ -33,6 +33,11 @@ public class DsCmsFileController extends DsCmsBaseController
 	@Autowired
 	private DsCmsSiteService service;
 
+	private String getCmsRoot()
+	{
+		return request.getSession().getServletContext().getRealPath("/html") + "/";
+	}
+
 	@RequestMapping("/getFileTree")
 	public String getFileTree()
 	{

@@ -28,6 +28,11 @@ public class DsCmsTemplateController extends DsCmsBaseController
 	@Autowired
 	private DsCmsSiteService service;
 
+	private String getCmsRoot()
+	{
+		return request.getSession().getServletContext().getRealPath("/html") + "/";
+	}
+
 	// 内容编辑
 	@RequestMapping("/addTemplate1")
 	public String addTemplate1()

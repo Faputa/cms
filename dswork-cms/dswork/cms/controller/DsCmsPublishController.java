@@ -595,6 +595,11 @@ public class DsCmsPublishController extends DsCmsBaseController
 		}
 	}
 
+	private String getCmsRoot()
+	{
+		return request.getSession().getServletContext().getRealPath("/html") + "/";
+	}
+
 	private String getLocalAddr()
 	{
 		String addr = request.getLocalAddr();
