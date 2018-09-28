@@ -33,11 +33,6 @@ public class DsCmsFileController extends DsCmsBaseController
 	@Autowired
 	private DsCmsSiteService service;
 
-	private String getCmsRoot()
-	{
-		return request.getSession().getServletContext().getRealPath("/html") + "/";
-	}
-
 	@RequestMapping("/getFileTree")
 	public String getFileTree()
 	{
@@ -100,7 +95,7 @@ public class DsCmsFileController extends DsCmsBaseController
 				}
 				if(site != null && site.getFolder().trim().length() > 0 && checkOwn(site.getId()))
 				{
-					String filePath = getCmsRoot() + site.getFolder() + "/html/f/res/";
+					String filePath = getPathHtml() + site.getFolder() + "/html/f/res/";
 					File froot = new File(filePath);
 					File f = new File(filePath + uriPath);
 					// 限制为只能读取根目录下的信息
@@ -151,7 +146,7 @@ public class DsCmsFileController extends DsCmsBaseController
 				List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 				if(site != null && site.getFolder().trim().length() > 0 && checkOwn(site.getId()))
 				{
-					String resPath = getCmsRoot() + site.getFolder() + "/html/f/res/";
+					String resPath = getPathHtml() + site.getFolder() + "/html/f/res/";
 					File froot = new File(resPath);
 					File f = new File(resPath + uriPath);
 					// 限制为只能读取根目录下的信息
@@ -207,7 +202,7 @@ public class DsCmsFileController extends DsCmsBaseController
 				List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 				if(site != null && site.getFolder().trim().length() > 0 && checkOwn(site.getId()))
 				{
-					String resPath = getCmsRoot() + site.getFolder() + "/html/f/res/";
+					String resPath = getPathHtml() + site.getFolder() + "/html/f/res/";
 					File froot = new File(resPath);
 					froot.mkdirs();
 					File f = new File(resPath + uriPath);
@@ -252,7 +247,7 @@ public class DsCmsFileController extends DsCmsBaseController
 				// List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 				if(site != null && site.getFolder().trim().length() > 0 && checkOwn(site.getId()))
 				{
-					String resPath = getCmsRoot() + site.getFolder() + "/html/f/res/";
+					String resPath = getPathHtml() + site.getFolder() + "/html/f/res/";
 					File froot = new File(resPath);
 					File f = new File(resPath + uriPath);
 					// 限制为只能读取根目录下的信息
@@ -270,7 +265,7 @@ public class DsCmsFileController extends DsCmsBaseController
 			print("{\"err\":\"上传失败\",\"msg\":\"\"}");
 		}
 	}
-	private static String hz = "avi,bmp,css,doc,docx,flv,gif,jpeg,jpg,js,mp3,mp4,pdf,png,ppt,pptx,rtf,swf,txt,webm,xls,xlsx";
+	private static String hz = "avi,bmp,css,doc,docx,eot,flv,gif,ico,jpeg,jpg,js,mp3,mp4,pdf,png,ppt,pptx,rtf,svg,swf,ttf,txt,webm,woff,woff2,xls,xlsx";
 	private static String cc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_0123456789.";
 	private static String[] hzArr = hz.split(",");
 
