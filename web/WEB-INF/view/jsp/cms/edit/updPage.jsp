@@ -17,6 +17,7 @@ $(function(){
 	KindEditor.ready(function(K) {
 		K.create('#content', {
 			cssPath : '',
+			filterMode : false,
 			uploadJson : 'upload.htm?categoryid=${po.categoryid}',
 			afterBlur:function(){this.sync();}
 		});
@@ -52,8 +53,8 @@ $(function(){
 		<td class="menuTool">
 		<c:if test="${po.scope==2}"><a class="look" target="_blank" href="${fn:escapeXml(po.url)}">预览外链</a></c:if>
 		<c:if test="${po.scope!=2}">
-			<a class="look" target="_blank" href="${ctx}/cmsbuild/preview.chtml?siteid=${po.siteid}&categoryid=${po.categoryid}&pageid=${po.id}">预览页面</a><c:if test="${enablemobile}">
-			<a class="look" target="_blank" href="${ctx}/cmsbuild/preview.chtml?siteid=${po.siteid}&categoryid=${po.categoryid}&pageid=${po.id}&mobile=true">预览移动版页面</a></c:if>
+			<a class="look" target="_blank" href="${ctx}/cmsbuild/preview.chtml?siteid=${po.siteid}&categoryid=${po.categoryid}&pageid=${po.id}&isedit=true">预览页面</a><c:if test="${enablemobile}">
+			<a class="look" target="_blank" href="${ctx}/cmsbuild/preview.chtml?siteid=${po.siteid}&categoryid=${po.categoryid}&pageid=${po.id}&mobile=true&isedit=true">预览移动版页面</a></c:if>
 		</c:if>
 		<c:if test="${po.audit}">
 			<a class="back" onclick="_revoke();" href="#">撤回审核</a>
@@ -130,7 +131,7 @@ $(function(){
 	</tr>
 	<tr>
 		<td class="form_title">标题</td>
-		<td class="form_input"><input type="text" name="title" maxlength="100" style="width:400px;" dataType="Require" value="${fn:escapeXml(po.title)}" /></td>
+		<td class="form_input"><input type="text" name="title" maxlength="100" style="width:400px;" datatype="Require" value="${fn:escapeXml(po.title)}" /></td>
 	</tr>
 	<tr>
 		<td class="form_title">摘要</td>

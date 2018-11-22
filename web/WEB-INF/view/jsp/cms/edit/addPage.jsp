@@ -16,6 +16,7 @@ $(function(){
 	KindEditor.ready(function(K) {
 		K.create('#content', {
 			cssPath : '',
+			filterMode : false,
 			uploadJson : 'upload.htm?categoryid=${fn:escapeXml(param.categoryid)}',
 			afterBlur:function(){this.sync();}
 		});
@@ -90,7 +91,7 @@ $(function(){
 	</tr>
 	<tr>
 		<td class="form_title">标题</td>
-		<td class="form_input"><input type="text" name="title" maxlength="100" style="width:400px;" dataType="Require" value="" /></td>
+		<td class="form_input"><input type="text" name="title" maxlength="100" style="width:400px;" datatype="Require" value="" /></td>
 	</tr>
 	<tr>
 		<td class="form_title">摘要</td>
